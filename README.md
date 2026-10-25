@@ -1,38 +1,17 @@
----
-language:
-  - en
-  - es
-license: apache-2.0
-library_name: peft
-pipeline_tag: translation
-base_model: Helsinki-NLP/opus-mt-en-es
-base_model_relation: adapter
-tags:
-  - translation
-  - lora
-  - peft
-  - marian
-  - en-es
-datasets:
-  - opus_books
-metrics:
-  - bleu
-model-index:
-  - name: omt-en-es-books
-    results:
-      - task:
-          type: translation
-          name: English to Spanish translation
-        dataset:
-          name: opus_books en-es
-          type: opus_books
-          config: en-es
-          split: test
-        metrics:
-          - type: bleu
-            name: sacreBLEU
-            value: 19.99
----
+<p align="center">
+  <a href="https://huggingface.co/emonHasan01/omt-en-es-books">
+    <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Model-omt--en--es--books-FFD21E?style=flat&labelColor=24292e" alt="Model">
+  </a>
+  <a href="https://huggingface.co/spaces/emonHasan01/english-into-spanish">
+    <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Spaces-FFD21E?style=flat&labelColor=24292e" alt="Demo">
+  </a>
+  <a href="https://huggingface.co/Helsinki-NLP/opus-mt-en-es">
+    <img src="https://img.shields.io/badge/Base-opus--mt--en--es-FFD21E?style=flat&labelColor=24292e" alt="Base model">
+  </a>
+  <img src="https://img.shields.io/badge/Method-LoRA%20(PEFT)-8A2BE2?style=flat&labelColor=24292e" alt="Method">
+  <img src="https://img.shields.io/badge/sacreBLEU-19.99%20(%2B2.90)-4c1?style=flat&labelColor=24292e" alt="sacreBLEU">
+  <img src="https://img.shields.io/badge/License-Apache%202.0-blue?style=flat&labelColor=24292e" alt="License">
+</p>
 
 <img src="assets/omt_light.png" alt="omt-en-es-books — English into Spanish, tuned on literature" width="100%">
 
@@ -133,8 +112,6 @@ merged.save_pretrained("merged-en-es")
 | Epochs | 3, best checkpoint by BLEU |
 | Max length | 128 tokens |
 | Training pairs | 74,776 |
-| Hardware | Tesla T4 |
-| Training time | ~26 minutes |
 
 ### Two details that matter for Marian
 
@@ -163,11 +140,6 @@ Both mistakes train without any error and simply produce a worse model.
   search affordable. Expect noise of a few tenths of a BLEU point.
 - **Adapter only.** It will not load on its own, and it will not work on a different base
   model.
-
-## Reproducing
-
-Training, the baseline measurement, both charts and this card come from one Colab
-notebook on a Tesla T4. The raw numbers are in [`results.json`](results.json).
 
 ## Citation
 
