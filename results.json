@@ -1,0 +1,79 @@
+{
+  "base_model": "Helsinki-NLP/opus-mt-en-es",
+  "dataset": "Helsinki-NLP/opus_books/en-es",
+  "eval_pairs": 1000,
+  "base_bleu": 17.0885,
+  "tuned_bleu": 19.9894,
+  "delta": 2.9009,
+  "bleu_per_epoch": [
+    [
+      1,
+      19.2331
+    ],
+    [
+      2,
+      19.8913
+    ],
+    [
+      3,
+      19.9894
+    ]
+  ],
+  "examples": [
+    {
+      "en": "Kitty, on the contrary, was more active than usual and even more animated.",
+      "ref": "Kitty, al contrario, estaba más activa a incluso más animada que nunca.",
+      "base": "Kitty, por el contrario, estaba más activa que de costumbre y aún más animada.",
+      "tuned": "Kitty, por el contrario, estaba más activa que de costumbre y aún más animada."
+    },
+    {
+      "en": "All necessary preparations shall be made for your return.",
+      "ref": "Se darán las órdenes necesarias para su regreso.",
+      "base": "Se harán todos los preparativos necesarios para su regreso.",
+      "tuned": "Se harán todos los preparativos necesarios para su regreso."
+    },
+    {
+      "en": "Maintenant partons, allons, allons vers Sion.",
+      "ref": "¡Demasiado larga ha sido ya la pausa! ¡Adelante!",
+      "base": "Los partens, los allons, los allons de Sion.",
+      "tuned": "Los inquilinos son partens, allons, allons vers Sion."
+    },
+    {
+      "en": "Thursday, Aug.",
+      "ref": "Jueves 20 de agosto.",
+      "base": "Jueves, agosto.",
+      "tuned": "Jueves, agosto."
+    },
+    {
+      "en": "\"Richelieu\"",
+      "ref": "Richelieu»",
+      "base": "\"Richelieu\"",
+      "tuned": "Richelieu"
+    },
+    {
+      "en": "If you do not take pains to know what is most necessary for a Christian, then what can interest you?",
+      "ref": "Si no tratas de saber lo que más importancia tiene para un cristiano, ¿cómo puede interesarte lo demás? –dijo el padre, levantándose–.",
+      "base": "Si usted no se esfuerza por saber lo que es más necesario para un cristiano, ¿qué puede interesarle?",
+      "tuned": "Si usted no se esfuerza en saber lo que es más necesario para un cristiano, ¿qué puede interesarle?"
+    }
+  ],
+  "config": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "lr": 0.0003,
+    "epochs": 3,
+    "batch_size": 32,
+    "max_len": 128,
+    "trainable_params": 589824,
+    "total_params": 78533120,
+    "train_pairs": 74776,
+    "train_minutes": 25.9,
+    "hardware": "Tesla T4",
+    "seed": 42
+  }
+}
